@@ -1,9 +1,15 @@
 ﻿using System;
 
-internal class Program
+
+namespace Week03Game
 {
-    private static void Main(string[] args)
+    class Program
     {
-        Console.WriteLine("Hello, World!");
+        static int Main(string[] args)
+        {
+            Director director = new Director();
+            director.StartGame();
+            return 0;
+        }
     }
 }
