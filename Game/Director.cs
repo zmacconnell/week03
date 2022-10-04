@@ -19,6 +19,9 @@ namespace Week03Game
             currentCard = card._value;
         }
 
+        /// <summary>
+        /// Starts the game.
+        /// </summary>
         public void StartGame()
         {
             while (_isPlaying)
@@ -28,12 +31,18 @@ namespace Week03Game
                 DoOutputs();
             }
         }
+        /// <summary>
+        /// Gathers inputs from user and prints current card.
+        /// </summary>
         public void GetInputs()
         {
             Console.WriteLine($"The card is {currentCard}");
             Console.Write("Higher or lower? ");
             playersChoice = Console.ReadLine();
         }
+        /// <summary>
+        /// Updates the game.
+        /// </summary>
 
         public void DoUpdates()
         {
@@ -49,7 +58,9 @@ namespace Week03Game
             _score = card._points;
             _totalScore += _score;
         }
-
+        /// <summary>
+        /// Prints outputs for the user, decides if the game is over due to 0 points.
+        /// </summary>
         public void DoOutputs()
         {
             if (!_isPlaying)
