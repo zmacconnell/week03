@@ -6,15 +6,17 @@ namespace Week03Game
 {
     public class Director
     {
-        Cards currentCard = new Cards();
         bool _isPlaying = true;
         int _score = 0;
         int _totalScore = 300;
         string playersChoice = "";
+        int currentCard = 0;
+        Cards card = new Cards();
 
         public Director()
         {
-            Cards card = new Cards();
+            card.Shuffle();
+            currentCard = card._value;
         }
 
         public void StartGame()
@@ -30,7 +32,7 @@ namespace Week03Game
         {
             Console.WriteLine($"The card is {currentCard}");
             Console.Write("Higher or lower? ");
-            string playersChoice = Console.ReadLine();
+            playersChoice = Console.ReadLine();
         }
 
         public void DoUpdates()
@@ -40,7 +42,11 @@ namespace Week03Game
                 return;
             }
 
-            _score += card._points;
+            int previousCard = currentCard;
+            card.Shuffle();
+            currentCard = card._value;
+            card.Points(playersChoice, currentCard, previousCard);
+            _score = card._points;
             _totalScore += _score;
         }
 
@@ -51,9 +57,13 @@ namespace Week03Game
                 return;
             }
 
-            Console.WriteLine($"The card was: {values}");
+            Console.WriteLine($"The card was: {card._value}");
             Console.WriteLine($"Your score is: {_totalScore}\n");
-            _isPlaying = (_score > 0);
+            if (_totalScore < 0)
+            {
+                _totalScore = 0;
+            }
+            _isPlaying = (_totalScore > 0);
         }
     }
 }

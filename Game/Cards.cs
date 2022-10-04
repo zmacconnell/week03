@@ -12,15 +12,19 @@ namespace Week03Game
         }
 
 
-        public int Shuffle(string playersChoice, int previousCard)
+        public void Shuffle()
         {
             Random rnd = new Random();
             _value = rnd.Next(1,13);
-            if (_value < previousCard && playersChoice == "l")
+        }
+
+        public void Points(string playersChoice, int currentCard, int previousCard)
+        {
+            if (currentCard < previousCard && playersChoice.ToLower() == "L")
             {
                 _points = 100;
             }
-            else if (_value > previousCard && playersChoice == "h")
+            else if (currentCard > previousCard && playersChoice.ToUpper() == "H")
             {
                 _points = 100;
             }
@@ -28,7 +32,6 @@ namespace Week03Game
             {
                 _points = -75;
             }
-            return _value;
         }
     }
 }
