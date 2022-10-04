@@ -75,6 +75,15 @@ namespace Week03Game
                 _totalScore = 0;
             }
             _isPlaying = (_totalScore > 0);
+            if (_isPlaying)
+            {
+                Console.Write("Play again (y/n)? ");
+                playAgain = Console.ReadLine();
+                if (playAgain.ToUpper() == "N")
+                {
+                    _isPlaying = false;
+                }
+            }
         }
     }
 }
