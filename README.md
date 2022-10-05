@@ -1,4 +1,4 @@
-# week03
+# HiLo Game
 # 
 # Randomly shuffles a "deck" of cards and returns a number between 1-13
 # Asks for a user input of "h" or "l" indicating higher or lower respectively
