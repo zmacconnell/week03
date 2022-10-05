@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 
-namespace Week03Game
+namespace HiLoGame
 {
     public class Director
     {

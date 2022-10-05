@@ -1,6 +1,6 @@
 using System;
 
-namespace Week03Game
+namespace HiLoGame
 {
     /// <summary>
     /// Creates a 'deck of cards' that can be shuffles and return a value between 1 and 13.

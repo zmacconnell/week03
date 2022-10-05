@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Week03Game
+namespace HiLoGame
 {
     class Program
     {
