@@ -8,11 +8,11 @@ namespace Week03Game
     /// Shuffle returns value between 1 and 13. 
     /// Points returns how many points earned from correct or incorrect guess. 
     /// </summary>
-    public class Cards
+    public class Deck
     {
         public int _points = 0;
         public int _value = 0;
-        public Cards()
+        public Deck()
         {
             
         }

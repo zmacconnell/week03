@@ -11,7 +11,7 @@ namespace Week03Game
         int _totalScore = 300;
         string playersChoice = "";
         int currentCard = 0;
-        Cards card = new Cards();
+        Deck card = new Deck();
 
         public Director()
         {
@@ -78,7 +78,7 @@ namespace Week03Game
             if (_isPlaying)
             {
                 Console.Write("Play again (y/n)? ");
-                playAgain = Console.ReadLine();
+                string playAgain = Console.ReadLine();
                 if (playAgain.ToUpper() == "N")
                 {
                     _isPlaying = false;
