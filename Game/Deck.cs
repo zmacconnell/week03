@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace HiLoGame
 {
@@ -12,6 +13,9 @@ namespace HiLoGame
     {
         public int _points = 0;
         public int _value = 0;
+        public string _suit = "";
+        public int _rounds = 0;
+        public int _correctAnswers = 0;
         public Deck()
         {
             
@@ -24,6 +28,9 @@ namespace HiLoGame
         {
             Random rnd = new Random();
             _value = rnd.Next(1,13);
+            var suits = new List<string>{"Diamonds","Hearts","Spades","Clubs"};
+            int index = rnd.Next(suits.Count);
+            _suit = (suits[index]);
         }
 
         /// <summary>
@@ -31,18 +38,21 @@ namespace HiLoGame
         /// </summary>
         public void Points(string playersChoice, int currentCard, int previousCard)
         {
-            if (currentCard < previousCard && playersChoice.ToLower() == "L")
+            if (currentCard < previousCard && playersChoice.ToUpper() == "L")
             {
                 _points = 100;
+                _correctAnswers += 1;
             }
             else if (currentCard > previousCard && playersChoice.ToUpper() == "H")
             {
                 _points = 100;
+                _correctAnswers += 1;
             }
             else
             {
                 _points = -75;
             }
+            _rounds += 1;
         }
     }
 }

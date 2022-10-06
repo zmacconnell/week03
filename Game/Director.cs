@@ -11,12 +11,16 @@ namespace HiLoGame
         int _totalScore = 300;
         string playersChoice = "";
         int currentCard = 0;
+        string currentSuit = "";
+        int rounds = 0;
+        int correctAnswers = 0;
         Deck card = new Deck();
 
         public Director()
         {
             card.Shuffle();
             currentCard = card._value;
+            currentSuit = card._suit;
         }
 
         /// <summary>
@@ -36,7 +40,7 @@ namespace HiLoGame
         /// </summary>
         public void GetInputs()
         {
-            Console.WriteLine($"The card is {currentCard}");
+            Console.WriteLine($"The card is the {currentCard} of {currentSuit}");
             Console.Write("Higher or lower? ");
             playersChoice = Console.ReadLine();
         }
@@ -54,9 +58,12 @@ namespace HiLoGame
             int previousCard = currentCard;
             card.Shuffle();
             currentCard = card._value;
+            currentSuit = card._suit;
             card.Points(playersChoice, currentCard, previousCard);
             _score = card._points;
             _totalScore += _score;
+            rounds += card._rounds;
+            correctAnswers += card._correctAnswers;
         }
         /// <summary>
         /// Prints outputs for the user, decides if the game is over due to 0 points.
@@ -68,8 +75,9 @@ namespace HiLoGame
                 return;
             }
 
-            Console.WriteLine($"The card was: {card._value}");
-            Console.WriteLine($"Your score is: {_totalScore}\n");
+            Console.WriteLine($"The card was: {card._value} of {card._suit}");
+            Console.WriteLine($"Your points: {_totalScore}\n");
+            Console.WriteLine($"Your overall score is: {rounds / correctAnswers}%");
             if (_totalScore < 0)
             {
                 _totalScore = 0;
