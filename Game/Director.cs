@@ -76,8 +76,8 @@ namespace HiLoGame
             }
 
             Console.WriteLine($"The card was: {card._value} of {card._suit}");
-            Console.WriteLine($"Your points: {_totalScore}\n");
-            Console.WriteLine($"Your overall score is: {rounds / correctAnswers}%");
+            Console.WriteLine($"Your points: {_totalScore}");
+            /// Console.WriteLine($"Your overall score is: {(rounds / correctAnswers) * 100}% \n");
             if (_totalScore < 0)
             {
                 _totalScore = 0;
