@@ -14,8 +14,8 @@ namespace HiLoGame
         public int _points = 0;
         public int _value = 0;
         public string _suit = "";
-        public int _rounds = 0;
-        public int _correctAnswers = 0;
+        public float _rounds = 0;
+        public float _correctAnswers = 0;
         public Deck()
         {
             
